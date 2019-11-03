@@ -12,8 +12,10 @@ main(List<String> args) {
     .transform(utf8.decoder)    //decode bytes to UTF-8
     .transform(LineSplitter())  //Convert stream to individual lines.
     .listen((String line) {     //Process results
-      print(line.contains(RegExp(r'[0-9]'))); //Checks to see if String contains numeric values
-      print("$line");       
+      var modified = line.replaceAll(RegExp(r'[a-z,A-Z]'), '');
+      var finalString = modified.trim();
+      print("$finalString");
+      //TODO: Sent values to be stored on a list.
     },
 
 
