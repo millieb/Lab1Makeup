@@ -15,7 +15,6 @@ main(List<String> args) {
       var modified = line.replaceAll(RegExp(r'[a-z,A-Z]'), '');
       var finalString = modified.trim();
       print("$finalString");
-      //TODO: Sent values to be stored on a list.
     },
 
 
