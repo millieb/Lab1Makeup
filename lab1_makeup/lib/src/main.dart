@@ -1,13 +1,6 @@
 import 'dart:io';
 
 main() async {
-  
-  homeworkGrades();
-
-}
-
-homeworkGrades() async {
-
   /*Homework One*/
   var file = File('hw1.txt');
   var content = await file.readAsString();
