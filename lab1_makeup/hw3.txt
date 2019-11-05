@@ -1,5 +1,1 @@
-Alvarado, Roberto 100
-Fernandez, Santiago 75 
-Juarez, Aaron 80
-Marquez, Brian 70
-Perez, Valeria 100
+Alvarado, Roberto 60
