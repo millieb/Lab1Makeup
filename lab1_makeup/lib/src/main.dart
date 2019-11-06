@@ -13,7 +13,8 @@ main() async {
   var firstGradeNum = int.parse(firstGrade);
 
   var grades= [];
-  grades.add(firstGradeNum*10);
+  var homeworkOneGrade = firstGradeNum*10;
+  grades.add(homeworkOneGrade);
 
   /*Homework Two*/
   var fileTwo = File('hw2.txt');
@@ -26,7 +27,8 @@ main() async {
 
   var secondGradeNum = int.parse(secondGrade);
 
-  grades.add(secondGradeNum*10);
+  var homeworkTwoGrade = secondGradeNum*10;
+  grades.add(homeworkTwoGrade);
 
   /*Homework Three*/
   var fileThree = File('hw3.txt');
@@ -38,7 +40,8 @@ main() async {
 
   var thirdGradeNum = int.parse(thirdGrade);
 
-  grades.add(thirdGradeNum*10);
+  var homeworkThreeGrade = thirdGradeNum*10;
+  grades.add(homeworkThreeGrade);
 
 
   /*Prints Total Points for Homework Assignments*/
@@ -60,7 +63,8 @@ main() async {
   var projectOneGradeNum = int.parse(projectOneGrade);
 
   var projectGrades= [];
-  projectGrades.add(projectOneGradeNum*10);
+  var projOneGrade = projectOneGradeNum*10;
+  projectGrades.add(projOneGrade);
 
   /*Project Two grades*/
   var projectTwo = File('project2.txt');
@@ -73,7 +77,8 @@ main() async {
 
   var projectTwoGradeNum = int.parse(projectTwoGrade);
 
-  projectGrades.add(projectTwoGradeNum*10);
+  var projTwoGrade = projectTwoGradeNum*10;
+  projectGrades.add(projTwoGrade);
 
   /*Prints Total Points for Project Assignments*/
   int sumProjects = projectGrades[0] + projectGrades[1];
@@ -93,6 +98,7 @@ main() async {
   var examGradeNum = int.parse(examGrade);
 
   var examGrades= [];
+
   examGrades.add(examGradeNum*10);
   int examFinalGrade = examGradeNum*10;
 
@@ -103,6 +109,30 @@ main() async {
   /*Adding All Points to get Average Grade*/
   double averageGrade = (totalPoints + totalProjectPoints + totalExamPoints);
   print("The final grade is: $averageGrade");
+
+  /*Determines letter grade*/
+  var letterGrade;
+  if(averageGrade <= 59){
+    letterGrade = "F";}
+  if(averageGrade >= 60 && averageGrade <= 69){
+    letterGrade = "D";}
+  if(averageGrade >= 70 && averageGrade <= 79){
+    letterGrade = "C";}
+  if(averageGrade>= 80 && averageGrade <= 89){
+    letterGrade = "B";}
+  if(averageGrade>= 90 && averageGrade <= 100){
+    letterGrade = "A";}
+  print(letterGrade);
+
+
+ 
+  /*Writing grades to text file*/
+  var gradesOutput = "name                  grade   w-total   exam(100)   proj1(100)    proj2(100)    hw1(100)    hw2(100)    hw3(100)\nAlvarado, Roberto     $letterGrade        $averageGrade         $examGradeNum         $projOneGrade              $projTwoGrade          $homeworkOneGrade          $homeworkTwoGrade          $homeworkThreeGrade";
+
+
+  var fileCopy = await File('output.txt').writeAsString(gradesOutput);
+  print(await fileCopy.exists());
+  print(await fileCopy.length());
 
 }
 

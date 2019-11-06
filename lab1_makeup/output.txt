@@ -1,0 +1,2 @@
+name                  grade   w-total   exam(100)   proj1(100)    proj2(100)    hw1(100)    hw2(100)    hw3(100)
+Alvarado, Roberto     B        80.0         8         90              90          80          70          60
